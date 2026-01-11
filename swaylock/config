@@ -1,0 +1,51 @@
+# ---------- General ----------
+daemonize
+indicator
+clock
+datestr=%A, %d %B
+timestr=%H:%M
+
+# ---------- Font ----------
+font=JetBrainsMono Nerd Font
+font-size=32
+
+# ---------- Colors (Nord) ----------
+# Background
+color=2e3440ff
+
+# Ring colors
+inside-color=2e3440cc
+inside-clear-color=2e3440cc
+inside-caps-lock-color=2e3440cc
+inside-ver-color=2e3440cc
+inside-wrong-color=2e3440cc
+
+ring-color=4c566aff
+ring-clear-color=88c0d0ff
+ring-caps-lock-color=ebcb8bff
+ring-ver-color=8fbcbbff
+ring-wrong-color=bf616aff
+
+# Line & highlight
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+# Text colors
+text-color=d8dee9ff
+text-clear-color=88c0d0ff
+text-caps-lock-color=ebcb8bff
+text-ver-color=8fbcbbff
+text-wrong-color=bf616aff
+
+# ---------- Indicator ----------
+indicator-radius=120
+indicator-thickness=10
+
+# ---------- Effects (swaylock-effects only) ----------
+effect-blur=7x5
+effect-vignette=0.3:0.3
+fade-in=0.2
+

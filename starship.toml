@@ -1,0 +1,47 @@
+add_newline = false
+command_timeout = 1000
+
+# Layout: Replaced $character with a custom string
+format = "[Alex@linux](bold green)[:](bold white)$directory[$git_branch](#6082B6 )[\\$](bold white) "
+
+
+
+
+# ----------------------------
+# Directory (BOLD BLUE)
+# ----------------------------
+[directory]
+style = "bold blue"
+format = "[$path]($style)"
+truncation_length = 0
+truncate_to_repo = false
+
+# ----------------------------
+# Git branch
+# ----------------------------
+[git_branch]
+symbol = "  "
+format = "$symbol$branch"
+
+
+# ----------------------------
+# Disable everything extra
+# ----------------------------
+[git_status]
+disabled = true
+[git_commit]
+disabled = true
+[package]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = true
+[golang]
+disabled = true
+[java]
+disabled = true
+[time]
+disabled = true
