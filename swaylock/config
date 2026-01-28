@@ -1,51 +1,77 @@
-# ---------- General ----------
+###############
+# Behavior
+###############
 daemonize
 indicator
 clock
-datestr=%A, %d %B
-timestr=%H:%M
+screenshots
+grace=0
+fade-in=0
+ignore-empty-password
+show-failed-attempts
 
-# ---------- Font ----------
-font=JetBrainsMono Nerd Font
-font-size=32
+###############
+# Effects (glass)
+###############
+effect-blur=10x4
+effect-vignette=0.30:0.20
 
-# ---------- Colors (Nord) ----------
-# Background
-color=2e3440ff
+###############
+# Time & Date
+###############
+timestr=%I:%M:%S %p
+datestr=%A, %b %d 
 
-# Ring colors
-inside-color=2e3440cc
-inside-clear-color=2e3440cc
-inside-caps-lock-color=2e3440cc
-inside-ver-color=2e3440cc
-inside-wrong-color=2e3440cc
+###############
+#
+# Typography
+###############
+font=Inter
+font-size=24
 
-ring-color=4c566aff
-ring-clear-color=88c0d0ff
-ring-caps-lock-color=ebcb8bff
-ring-ver-color=8fbcbbff
-ring-wrong-color=bf616aff
+###############
+# Background fallback
+###############
+color=2e3440dd
 
-# Line & highlight
-line-color=00000000
-line-clear-color=00000000
-line-caps-lock-color=00000000
-line-ver-color=00000000
-line-wrong-color=00000000
-
+###############
 # Text colors
-text-color=d8dee9ff
-text-clear-color=88c0d0ff
-text-caps-lock-color=ebcb8bff
-text-ver-color=8fbcbbff
-text-wrong-color=bf616aff
+###############
+text-color=eceff4
+text-clear-color=8fbcbb
+text-ver-color=a3be8c
+text-wrong-color=bf616a
+text-caps-lock-color=ebcb8b
 
-# ---------- Indicator ----------
-indicator-radius=120
-indicator-thickness=10
+###############
+# Indicator geometry
+###############
+indicator-radius=160
+indicator-thickness=6
 
-# ---------- Effects (swaylock-effects only) ----------
-effect-blur=7x5
-effect-vignette=0.3:0.3
-fade-in=0.2
+###############
+# Indicator colors
+###############
+inside-color=00000000
+inside-clear-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=00000000
+inside-caps-lock-color=00000000
+
+ring-color=4c566a88
+ring-clear-color=8fbcbb88
+ring-ver-color=a3be8caa
+ring-wrong-color=bf616aaa
+ring-caps-lock-color=ebcb8baa
+
+line-uses-ring
+separator-color=00000000
+
+###############
+# Key feedback
+###############
+key-hl-color=88c0d0aa
+bs-hl-color=d08770aa
+caps-lock-key-hl-color=ebcb8baa
+caps-lock-bs-hl-color=ebcb8baa
 
