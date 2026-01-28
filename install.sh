@@ -40,7 +40,7 @@ fi
 # --- 4. AUR packages ---
 # Added inter-font for the UI text styling
 yay -S --needed --noconfirm \
-  zen-browser \
+  zen-browser-bin \
   swaylock-effects \
   zsh-autosuggestions \
   zsh-syntax-highlighting \
