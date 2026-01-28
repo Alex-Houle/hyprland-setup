@@ -1,0 +1,118 @@
+/* Nord palette:
+   #2E3440 #3B4252 #434C5E #4C566A
+   #D8DEE9 #E5E9F0 #ECEFF4
+   #8FBCBB #88C0D0 #81A1C1 #5E81AC
+   #BF616A #D08770 #EBCB8B #A3BE8C #B48EAD
+*/
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "SF Pro Display", "Inter", "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 12.5px;
+}
+
+window#waybar {
+  background: rgba(46, 52, 64, 0.60);         /* Nord0 with transparency */
+  border: 1px solid rgba(216, 222, 233, 0.12); /* Nord4 faint */
+  border-radius: 14px;
+  color: #ECEFF4;                              /* Nord6 */
+}
+
+/* Spacing for the bar content */
+#workspaces,
+#clock,
+#tray,
+#pulseaudio,
+#network,
+#cpu,
+#bluetooth,
+#memory,
+#battery {
+  margin: 6px 6px;
+}
+
+/* Pill modules = “macOS control center” vibe */
+#clock,
+#tray,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#battery {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(59, 66, 82, 0.65);          /* Nord1 */
+  border: 1px solid rgba(216, 222, 233, 0.10);
+}
+
+/* Center clock slightly bolder, like macOS menu bar */
+#clock {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 6px 14px;
+}
+
+/* Workpaces: clean dots/pills */
+#workspaces {
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: rgba(59, 66, 82, 0.45);
+  border: 1px solid rgba(216, 222, 233, 0.10);
+}
+
+#workspaces button {
+  padding: 2px 8px;
+  margin: 0 3px;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(236, 239, 244, 0.70);
+}
+
+#workspaces button.active {
+  background: rgba(129, 161, 193, 0.35); /* Nord9 */
+  color: #ECEFF4;
+  border: 1px solid rgba(129, 161, 193, 0.35);
+}
+
+#workspaces button.urgent {
+  background: rgba(191, 97, 106, 0.35); /* Nord11 */
+  border: 1px solid rgba(191, 97, 106, 0.45);
+  color: #ECEFF4;
+}
+
+/* Subtle hover like macOS */
+#workspaces button:hover,
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#tray:hover,
+#clock:hover {
+  background: rgba(67, 76, 94, 0.70); /* Nord2 */
+}
+
+/* Battery warning/critical */
+#battery.warning {
+  border-color: rgba(235, 203, 139, 0.35); /* Nord13 */
+}
+
+#battery.critical {
+  border-color: rgba(191, 97, 106, 0.55); /* Nord11 */
+}
+
+/* Tooltip styling */
+tooltip {
+  background: rgba(46, 52, 64, 0.92);
+  border: 1px solid rgba(216, 222, 233, 0.14);
+  border-radius: 12px;
+  color: #ECEFF4;
+}
+
+tooltip label {
+  padding: 8px;
+}
+

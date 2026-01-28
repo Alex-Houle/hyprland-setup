@@ -1,0 +1,87 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "margin-top": 10,
+  "margin-left": 14,
+  "margin-right": 14,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/clock"],
+  "modules-right": [
+     "bluetooth",
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery"
+  ],
+
+  "bluetooth": {
+  "format": "  {status}",
+  "format-disabled": "  Off",
+  "format-off": "  Off",
+  "format-on": "  On",
+  "format-connected": "  {device_alias}",
+  "tooltip": true,
+  "tooltip-format": "{num_connections} connected",
+  "on-click": "blueman-manager"
+},
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "custom/clock": {
+    "interval": 1,
+    "exec": "date '+󰥔  %A, %B %d %Y • %I:%M:%S %p'",
+    "return-type": "text",
+    "tooltip": true,
+    "on-click": "gtk-launch google-calendar"
+
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "󰖁  Muted",
+    "on-click": "kitty -e alsamixer",
+    "tooltip": true
+  },
+
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  Wired",
+    "format-disconnected": "󰖪  Offline",
+    "on-click": "nm-connection-editor",
+    "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\n{essid}"
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true
+  },
+
+  "memory": {
+    "format": "󰍛  {percentage}%",
+    "tooltip": true
+  },
+
+  "battery": {
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰂄  {capacity}%",
+    "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+    "tooltip": true
+  }
+}
+
