@@ -35,7 +35,7 @@ fi
 # --- 4. AUR packages ---
 # Added zsh plugins for a better experience
 yay -S --needed --noconfirm \
-  zen-browser \
+  zen-browser-bin \
   swaylock-effects \
   zsh-autosuggestions \
   zsh-syntax-highlighting
