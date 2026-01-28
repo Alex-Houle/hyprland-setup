@@ -56,7 +56,7 @@ mkdir -p "$HOME/.config/kitty"
 [ -f ./starship.toml ] && install -m 644 ./starship.toml "$HOME/.config/starship.toml"
 
 # Directory-based configs (Kitty, Waybar, Wofi)
-for dir in kitty waybar wofi; do
+for dir in kitty waybar nvim wofi; do
   if [ -d "./$dir" ]; then
     rm -rf "$HOME/.config/$dir"
     cp -a "./$dir" "$HOME/.config/"
