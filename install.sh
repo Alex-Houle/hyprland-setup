@@ -4,6 +4,7 @@ set -euo pipefail
 echo "Starting Hyprland & Zsh deployment..."
 
 # --- 1. Core Packages (pacman) ---
+# Added ttf-jetbrains-mono-nerd for icons and blueman for bluetooth management
 sudo pacman -S --needed \
   git base-devel \
   hyprland \
@@ -15,7 +16,11 @@ sudo pacman -S --needed \
   xdg-desktop-portal-hyprland \
   qt5-wayland qt6-wayland \
   nvim \
-  zsh
+  zsh \
+  ttf-jetbrains-mono-nerd \
+  blueman \
+  network-manager-applet \
+  pulseaudio
 
 # --- 2. Set Zsh as default shell ---
 if [ "$SHELL" != "$(which zsh)" ]; then
@@ -33,12 +38,13 @@ if ! command -v yay >/dev/null 2>&1; then
 fi
 
 # --- 4. AUR packages ---
-# Added zsh plugins for a better experience
+# Added inter-font for the UI text styling
 yay -S --needed --noconfirm \
-  zen-browser-bin \
+  zen-browser \
   swaylock-effects \
   zsh-autosuggestions \
-  zsh-syntax-highlighting
+  zsh-syntax-highlighting \
+  inter-font
 
 # --- 5. Directory Structure ---
 mkdir -p "$HOME/.config/hypr"
@@ -47,6 +53,7 @@ mkdir -p "$HOME/.config/swaylock"
 mkdir -p "$HOME/.config/waybar"
 mkdir -p "$HOME/.config/wofi"
 mkdir -p "$HOME/.config/kitty"
+mkdir -p "$HOME/.config/nvim"
 
 # --- 6. Configuration Files Deployment ---
 # Standard configs
@@ -55,11 +62,12 @@ mkdir -p "$HOME/.config/kitty"
 [ -f ./wall.png ] && install -m 644 ./wall.png "$HOME/.config/wallpapers/wall.png"
 [ -f ./starship.toml ] && install -m 644 ./starship.toml "$HOME/.config/starship.toml"
 
-# Directory-based configs (Kitty, Waybar, Wofi)
-for dir in kitty waybar nvim wofi; do
+# Directory-based configs (Kitty, Waybar, Wofi, Nvim)
+for dir in kitty waybar wofi nvim; do
   if [ -d "./$dir" ]; then
+    echo "Updating $dir configuration..."
     rm -rf "$HOME/.config/$dir"
-    cp -a "./$dir" "$HOME/.config/"
+    cp -ra "./$dir" "$HOME/.config/"
   fi
 done
 
@@ -70,26 +78,21 @@ fi
 
 # --- 7. Zsh & Starship Initialization ---
 touch "$HOME/.zshrc"
-
-# Add Starship init to Zsh
 if ! grep -q 'starship init zsh' "$HOME/.zshrc"; then
   printf '\n# Starship Prompt\neval "$(starship init zsh)"\n' >>"$HOME/.zshrc"
 fi
 
-# Add Starship init to Bash (fallback)
 touch "$HOME/.bashrc"
 if ! grep -q 'starship init bash' "$HOME/.bashrc"; then
   printf '\n# Starship Prompt\neval "$(starship init bash)"\n' >>"$HOME/.bashrc"
 fi
 
-# Source Zsh Plugins from AUR
 {
   echo "# Plugins"
   echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 } >>"$HOME/.zshrc.tmp"
 
-# Append plugins only if not already present
 if ! grep -q "zsh-syntax-highlighting" "$HOME/.zshrc"; then
   cat "$HOME/.zshrc.tmp" >>"$HOME/.zshrc"
 fi
